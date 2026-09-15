@@ -249,18 +249,21 @@ footer{padding:24px 0 0;font-size:13px;color:var(--ash);border-top:1px solid var
   let db=null,tidy=false,hidden=[];
   function paint(){ document.querySelectorAll(".th").forEach(b=>{ const g=hidden.indexOf(b.dataset.f)>=0; b.classList.toggle("gone",g); const fig=b.closest("figure"); if(fig) fig.classList.toggle("gone",g); });
     if(btn) btn.textContent = tidy ? "整理をやめる（"+hidden.length+"枚 非表示）" : "写真を整理"; }
+  let writing=0;
   async function save(){ if(!db){ hint.textContent="この画面では保存できません。claude.ai で開くと全員に反映されます。"; return; }
-    try{ await db.doc("photos/hidden").set({files:hidden}); hint.textContent=hidden.length+"枚を隠しました。見ている全員に反映されます。"; }
-    catch(e){ hint.textContent="保存できませんでした: "+(e.code||e.message||e); } }
+    const snapshot=hidden.slice(); writing++;
+    try{ await db.doc("photos/hidden").set({files:snapshot}); hint.textContent=snapshot.length+"枚を隠しています（保存しました）"; }
+    catch(e){ hint.textContent="保存できませんでした: "+(e.code||e.message||e); }
+    finally{ writing--; } }
   document.addEventListener("click",e=>{ const b=e.target.closest(".th"); if(!b) return;
     if(!tidy){ show(idx(b.dataset.f)); return; }
     e.preventDefault(); const f=b.dataset.f, i=hidden.indexOf(f);
     if(i>=0) hidden.splice(i,1); else hidden.push(f);
-    paint(); save(); });
+    hint.textContent=(i>=0?"戻しました":"隠しました")+"（"+hidden.length+"枚）"; paint(); save(); });
   if(btn) btn.onclick=()=>{ tidy=!tidy; document.body.classList.toggle("tidy",tidy); btn.setAttribute("aria-pressed",tidy);
     hint.textContent = tidy ? "消したい写真を押すと隠れます。もう一度押すと戻ります。" : ""; paint(); };
   (async()=>{ try{ db = window.claude&&window.claude.use ? await window.claude.use("db") : null; }catch(e){ db=null; }
     if(!db) return;
-    db.doc("photos/hidden").onSnapshot(sn=>{ const d=sn.data(); hidden=(d&&d.files)||[]; paint(); }, ()=>{}); })();
+    db.doc("photos/hidden").onSnapshot(sn=>{ if(writing>0) return; const d=sn.data(); hidden=(d&&d.files)||[]; paint(); }, ()=>{}); })();
 })();
 </script>
