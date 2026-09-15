@@ -1,0 +1,133 @@
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>赤崎を育てる人</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Shippori+Mincho:wght@500;700&display=swap">
+<style>
+:root{--bg:#F1F0EB;--card:#FFFFFF;--ink:#1F2426;--mute:#5F6A6D;--ash:#8A9497;--line:#DDDBD3;--sea:#2F5D68;--onsea:#CFE0E4;--shu:#B3402E;--wash:#E6ECEC;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171A1B;--card:#20262A;--ink:#EDEFEE;--mute:#B4BDBF;--ash:#7E888B;--line:#33393C;--sea:#5F9AA8;--onsea:#173238;--shu:#E0705C;--wash:#1E2C30;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#171A1B;--card:#20262A;--ink:#EDEFEE;--mute:#B4BDBF;--ash:#7E888B;--line:#33393C;--sea:#5F9AA8;--onsea:#173238;--shu:#E0705C;--wash:#1E2C30;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;font-size:16.5px;line-height:1.95;-webkit-font-smoothing:antialiased;font-feature-settings:"palt";padding-inline:20px;padding-block:0 72px}
+.wrap{max-width:720px;margin:0 auto}
+h1,h2,h3{margin:0;line-height:1.25;text-wrap:balance;word-break:auto-phrase;line-break:strict;overflow-wrap:anywhere}
+p,li{word-break:auto-phrase;line-break:strict;overflow-wrap:anywhere;margin:0 0 1.2em}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:24px 0;flex-wrap:wrap}
+.brand{font-weight:900;font-size:14px}
+.pill{font-size:12px;font-weight:700;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:5px 14px;background:var(--card);white-space:nowrap}
+.hero{padding:16px 0 36px}
+.eyebrow{font-size:13px;font-weight:700;color:var(--sea);letter-spacing:.08em;margin-bottom:16px}
+h1{font-family:"Shippori Mincho",serif;font-size:clamp(32px,6vw,54px);font-weight:700;letter-spacing:-.01em}
+.dek{font-size:18px;color:var(--mute);margin:22px 0 0;max-width:34em}
+.byline{font-size:13px;color:var(--ash);margin-top:18px}
+figure{margin:32px 0}
+figure img{width:100%;display:block;border-radius:16px;aspect-ratio:3/2;object-fit:cover}
+figcaption{font-size:12.5px;color:var(--ash);margin-top:8px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.two img{aspect-ratio:1}
+h2{font-size:clamp(22px,3.6vw,30px);font-weight:900;letter-spacing:-.02em;margin:56px 0 18px;padding-top:26px;border-top:2px solid var(--ink)}
+h2 small{display:block;font-size:12px;font-weight:700;color:var(--sea);letter-spacing:.1em;margin-bottom:10px}
+.pull{margin:34px 0;padding:0 0 0 22px;border-left:4px solid var(--shu);font-family:"Shippori Mincho",serif;font-size:24px;line-height:1.55;font-weight:700;text-wrap:balance}
+.pull small{display:block;font-family:"Zen Kaku Gothic New",sans-serif;font-size:12px;font-weight:700;color:var(--ash);margin-top:10px;letter-spacing:.06em}
+.facts{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 24px;margin:28px 0}
+.facts dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14.5px}
+.facts dt{color:var(--sea);font-weight:900;white-space:nowrap}
+.facts dd{margin:0;color:var(--mute)}
+.band{background:var(--sea);color:#fff;border-radius:22px;padding:36px 34px;margin:40px 0}
+.band h3{font-size:20px;font-weight:900;margin-bottom:18px}
+.band ol{margin:0;padding:0;list-style:none;display:grid;gap:16px}
+.band li{display:grid;grid-template-columns:40px 1fr;gap:12px}
+.band .n{font-size:34px;font-weight:900;line-height:1;letter-spacing:-.04em}
+.band b{display:block;font-size:17px;font-weight:900}
+.band p{margin:4px 0 0;color:var(--onsea);font-size:14.5px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
+.nums div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px}
+.nums b{display:block;font-size:26px;font-weight:900;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+.nums span{font-size:12px;color:var(--ash);display:block;margin-top:6px}
+.nums small{font-size:11px;color:var(--mute)}
+.cta{display:inline-block;background:var(--shu);color:#fff;font-weight:900;font-size:15px;padding:14px 24px;border-radius:10px;text-decoration:none;margin-top:6px}
+.cta:hover{filter:brightness(1.08)}
+.cta:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.note{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 24px;font-size:14px;color:var(--mute);margin-top:48px}
+.note b{color:var(--ink);font-weight:900}
+footer{padding:24px 0 0;font-size:13px;color:var(--ash);border-top:1px solid var(--line);margin-top:28px}
+@media (max-width:600px){.nums{grid-template-columns:1fr}.band{padding:28px 20px}.pull{font-size:20px}}
+</style>
+<div class="wrap">
+<header><div class="brand"><a href="./" style="color:inherit;text-decoration:none">← 能登ミートアップ 記録帳</a></div><div class="pill">2026年9月14日 TOGISOにてZoom収録 17分</div></header>
+
+<div class="hero">
+  <div class="eyebrow">TOGISO オーナー 佐藤正樹さん</div>
+  <h1>赤崎を、向こう40年かけて育てる。</h1>
+  <p class="dek">東京でITの仕事をしながら、志賀町赤崎の古民家を買い、直し、地震のあとも手放さなかった人の話。2026年9月14日、TOGISOの座敷でZoom越しに聞いた17分を、記事の形に整えました。</p>
+  <div class="byline">聞き手: けーた・小島哲郎・Yuuki Ichihara ／ 記録: Yuuki Ichihara</div>
+</div>
+
+<figure><img src="img/017.jpg" alt="TOGISOの看板が立つ古民家の外観"><figcaption>志賀町赤崎、TOGISO。築90年ほどの古民家宿。屋号は旧富来町から。</figcaption></figure>
+
+<h2><small>1</small>趣味は、空き家を価値に変えること</h2>
+<p>佐藤正樹さん、1980年山形生まれ。ふだんは東京のIT系の会社に勤めている。Airbnbは利用歴15年、ホスト歴10年。「初期からユーザーとして、可能性を感じて使っていた」と話す。</p>
+<p>2012年から「住宅に関する趣味のあれこれ」を始めた。古い物件を探して買い、直して貸す不動産賃貸業。2017年からは新宿の一室を解体からDIYで直してハウススタジオに。ドラマやCMの撮影に使われ、有名な歌手が知らないうちに大声で歌っていたのを後からYouTubeで知ったこともある。そして2020年、この赤崎の古民家TOGISOの運営が始まった。物件を買ったのは2017年だ。</p>
+<div class="facts"><dl>
+<dt>2012年〜</dt><dd>不動産賃貸業。物件選びから入居者付け、管理まで一人で</dd>
+<dt>2017年〜</dt><dd>新宿のハウススタジオ運営。撮影に貸す</dd>
+<dt>2017年</dt><dd>赤崎の古民家を購入</dd>
+<dt>2020年</dt><dd>TOGISO開業</dd>
+</dl></div>
+
+<h2><small>2</small>なぜ、赤崎だったのか</h2>
+<p>家を一軒ずつ直してきて、気づいたことがある。住んでいる人の暮らしは変わっても、近所の人の暮らしまでは変えられない。「インパクトが少ない」。それならエリア全体を再生してみたい。けれど東京では、隣の家や向かいの家を買い足すことはまずできない。</p>
+<p>過疎の進んだ集落で空き家を買い進め、自分好みの街をつくる。それが現実的だと考えた。赤崎は北前船の寄港地に近く、昭和初期に漁業と工芸で栄えた集落だ。火事で三分の一が焼けたが、お金があったので一斉に建て替わり、その後は新陳代謝がなかった。観光地になったことも、人が多く集まったこともない。素朴な日本の風景が残っている。それが気に入った。</p>
+<p>いま通りに面して7棟の家と、空き地が2つ。斜め前の蔵は店舗として再生している。レストラン、カフェ、立ち飲み屋、釣り道具屋、カラオケスナック。集落に足りないものを、一つずつ。</p>
+<figure class="two"><img src="img/061.jpg" alt="囲炉裏を囲む座布団と椅子"><img src="img/060.jpg" alt="参加者が外観を見上げて説明を聞いている"></figure>
+
+<h2><small>3</small>地震の半年前、母屋を直したばかりだった</h2>
+<p>「街づくりを楽しむには、まず自分が街を知って楽しむ必要がある」。海に潜って魚を突き、昼休みに焼いて食べる。仕事はリモートで回す。2023年の夏には母屋を大規模改修し、歩いて行ける喫茶店がない集落で、月に1回お茶会を開くようになった。</p>
+<p class="pull">都市で働き、能登に私財をぶっこむ。向こう40年くらいかけて赤崎の集落を育てる。築90年の街並みを、築130年の街並みにする。<small>佐藤さん</small></p>
+<p>そう何度も話していたところに、改修から半年も経たず、能登半島地震が起きた。</p>
+
+<h2><small>4</small>2024年1月1日、東京で</h2>
+<p>元日、佐藤さんは東京にいた。宿の防犯カメラには、家の中の物が倒れる様子と、近所の人の「津波が来るよ、みんな逃げるよ」という声が残っていた。声で誰かが分かる。</p>
+<p>近隣に複数の家を持っていたので、罹災証明は6枚届いた。ただし住民票は東京にある。義援金も支援金も、一切受けられない立場だった。</p>
+<p>1月4日、仕事始めの日に、関西の自治体から連絡が入る。能登の復興のために人員を派遣するが、TOGISOには泊まれるか。奥能登にはきっと泊まれる宿がない。全国から支援に行く人の宿が足りない。頭を整理して折り返した。「今週末に現地を見に行きます。泊まれる状況になりそうなら連絡します」。</p>
+<p>1月5日、仕事が終わってから支援物資を積んだ車で出発し、6日の朝に着いた。すぐ横の赤崎の集落には4.2メートルの津波が家の前まで押し寄せていた。TOGISOはちゃんと立っていた。海側に回ると津波の跡はあるが、建物には届いていない。瓦は一部落ちている。</p>
+<p class="pull">この状況を見て感じたことが、「余裕だな」。僕が3日作業すれば、全国から集まった復興のプロが滞在できるようになる。<small>佐藤さん</small></p>
+<p>寝ないで整えた。ドアの立て付けを直し、泊まれる形にした。概算の修繕費はこの敷地だけで2,000万円を超える。それでも、水が出なくても文句は言われない、リネンの交換もない、トラブルは自己解決してもらえる、宿泊料も払ってもらえる、能登の復興も加速する。素晴らしい話だった。</p>
+<p>だからこそ警戒した。「今までの人生で、話がうまく進みすぎた時はうまくいかない」。1月7日の夕方、Xに投稿した。復興支援団体向けに宿泊セットを整えた、電気とWi-Fiはある、水は出ない、それでもよければ問い合わせを。関西の団体は結局、輪島にベースキャンプを置いて2日だけの滞在になった。代わりに、投稿を見た三重県の支援団体が3月末まで借りてくれた。いまも連絡を取り合っている。</p>
+
+<h2><small>5</small>報道のないところに、支援は届かない</h2>
+<p>発災の当日からSNSを動かしていた。1月1日、自分が当事者であることと、ふるさと納税で既存の仕組みから支援してほしいこと。翌2日には、本音を書いた。</p>
+<p class="pull">能登への支援をお考えの方へ。地震が落ち着いたら、能登へ旅行に来てください。遠いですし、立派な観光地があるわけではないですが、人と自然と飯が最高です。<small>2024年1月2日の投稿</small></p>
+<p>日本中がパニックだった日に、未来の話をした。この投稿は大きく広がり、フランスのAP通信の取材を受けて「能登が全部だめになったわけではない」と世界に発信した。Yahoo!ニュースにも載った。「仕込んでいたから」と佐藤さんは言う。東日本大震災で見てきたことがある。報道が少ないところには支援が集まらない。</p>
+<div class="nums">
+<div><b>3億7千万円</b><span>珠洲市</span><small>楽天ふるさと納税・2024年1月18日時点</small></div>
+<div><b>3億1千万円</b><span>輪島市</span><small>同</small></div>
+<div><b>3,500万円</b><span>志賀町</span><small>同じ震度7で、この差</small></div>
+</div>
+<p>だから志賀町は、報道の多い輪島や珠洲とは別のやり方で戦わなければならない。取材は積極的に受け、震度7でも建物が耐えたことをきちんと見せる。宿として盛り上げる。</p>
+
+<h2><small>6</small>壊される前に、引き受ける</h2>
+<p>地震のあと、集落で家を諦める人が出てきた。地域の学校の先生の家もそうだった。本当は壊したくないが、一人で直すのは大変で、解体は無料でやってくれる。「じゃあ壊しましょう」。</p>
+<p>一度壊した家は戻らない。赤崎の歴史を伝える家を守ることも使命だと考えて、引き受けることにした。半壊した家、瓦の落ちた家、雨漏りしている家を買う。相手に寄り添い、先方の希望の形で引き取る。不動産屋のない集落では、信用の積み上げでしかそういう話は来ない。外国人が高く買うという話も出るが、日本海側の国土を守る責任も少し感じている、と。</p>
+<figure class="two"><img src="img/077.jpg" alt="輪島塗の店内と入口の光"><img src="img/076.jpg" alt="輪島塗の器が並ぶ棚"></figure>
+
+<div class="band"><h3>お金と人手が要る。考えていることは3つ</h3><ol>
+<li><div class="n">1</div><div><b>人材をつくる</b><p>過疎の町では採用ができない。母校の石川高専の建築学科の学生と、実際の街づくりを学生のうちからやる。壊れた間垣（まがき）を直すボランティア団体を立ち上げ、技術を継承し、赤崎に伝わる間垣を復活させた。</p></div></li>
+<li><div class="n">2</div><div><b>拠点をつくる</b><p>譲り受けた家をシェアハウスにして、若い人が赤崎に住める形を。半壊した家はもう直した。入居者はこれから。</p></div></li>
+<li><div class="n">3</div><div><b>商品をつくる</b><p>解体される蔵から出てきた輪島塗の器をアップサイクルしたランプシェード。真鍮削り出しの専用ソケット。志賀町のふるさと納税の返礼品にもなっている。2025年9月にはTOGISOの斜め前に小物の店を開いた。販売場所を探している。</p></div></li>
+</ol></div>
+
+<h2><small>7</small>本気を出さないといけない時</h2>
+<p class="pull">合理的に動くだけでは何も変わらない。みんなが合理的に動いた結果、地方は廃れていく。<small>佐藤さん</small></p>
+<p>地震で、この土地の地盤がいいことは証明された。安心して私財を投じられる。「人生には本気を出さないといけない時がある。今回がそのタイミングだった」。立ち向かう時に最初に力をくれるのは過去の自分で、積み上げてきたことでしか前に進めない。だから未来の自分を信じて、今を全力で。先月は県知事が宿を訪ねてきたという。</p>
+<p>けーたさんは志賀町とTOGISOを回ってきた感想を、こう返した。「地震のあとより随分良くなったと感じた。ただ、人の動きはまだほとんどない。その中で、人をまた呼び込もうという活動が、僕の中では感動でした。同じ石川県に縁がある僕たちで、一緒に頑張っていきましょう」。</p>
+
+<h2><small>8</small>一緒に活動する人を探しています</h2>
+<p>いちばん困っているのは人手。地域おこし協力隊として、佐藤さんと一緒に赤崎で活動する人を募集している。月給29万円、住宅の手当は別。宿の運営もしたいし、街づくりもしてみたい、という人に向いている。連絡先はX「ぴんぽいんと」。この番組のページに載せてよいか聞くと、「もちろんです。お願いしたい」。</p>
+<a class="cta" href="https://x.com/search?q=%E3%81%B4%E3%82%93%E3%81%BD%E3%81%84%E3%82%93%E3%81%A8%20TOGISO&src=typed_query" target="_blank" rel="noopener">X「ぴんぽいんと」を探す</a>
+
+<figure><img src="img/019.jpg" alt="座敷でノートPCのZoom画面を見る参加者"><figcaption>TOGISOの座敷。佐藤さんは東京からZoomで、12時のアポイントまでの17分間。</figcaption></figure>
+
+<div class="note"><b>この記事について</b><br>2026年9月14日11時40分ごろ、志賀町赤崎のTOGISOで行ったZoom収録（約17分・画面共有あり）を文字に起こし、話の順番を入れ替えずに整えました。数字は佐藤さんの画面と発言のとおりで、こちらで裏取りはしていません。写真はLINEアルバム「能登ツアー！」から。</div>
+<footer>能登ミートアップ 記録 ｜ 2026年9月14日 ｜ Yuuki Ichihara</footer>
+</div>
