@@ -17,7 +17,7 @@ header{display:flex;justify-content:space-between;align-items:center;gap:12px;pa
 .pill{font-size:12px;font-weight:700;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:5px 14px;background:var(--card);white-space:nowrap}
 .hero{padding:24px 0 48px;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
 .eyebrow{font-size:13px;font-weight:700;color:var(--sea);letter-spacing:.08em;margin-bottom:16px}
-h1{font-size:clamp(34px,6vw,62px);font-weight:900;letter-spacing:-.03em}
+h1{font-size:clamp(30px,5vw,52px);font-weight:900;letter-spacing:-.03em;text-wrap:nowrap}
 .lead{max-width:32em;font-size:17px;color:var(--mute);margin:22px 0 0}
 .stats{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:20px;font-size:13px;color:var(--ash);font-variant-numeric:tabular-nums}
 .stats b{color:var(--ink);font-weight:900}
@@ -227,6 +227,7 @@ footer{padding:24px 0 0;font-size:13px;color:var(--ash);border-top:1px solid var
   document.addEventListener("click",e=>{ const a=e.target.closest('a[href^="#a"]'); if(!a) return; const d=document.querySelector(a.getAttribute("href")); if(d&&d.tagName==="DETAILS"){ d.open=true; } });
   window.addEventListener("hashchange",openTarget); openTarget();
   document.addEventListener("keydown",e=>{ if(e.key!=="Enter"&&e.key!==" ") return; const b=e.target.closest&&e.target.closest(".art .q b.sp"); if(b){e.preventDefault(); open(b);} });
+  bind();
   (async()=>{ try{ db = window.claude&&window.claude.use ? await window.claude.use("db") : null; }catch(e){ db=null; }
     if(!db){ hint.textContent=HINT+"（この画面では保存できません）"; return; }
     db.collection("speakers").onSnapshot(snap=>{ snap.docs.forEach(d=>{ over[d.id.replace(/^a/,"")]=d.data()||{}; }); apply(); }, ()=>{}); })();
@@ -259,9 +260,13 @@ footer{padding:24px 0 0;font-size:13px;color:var(--ash);border-top:1px solid var
     try{ await db.doc("photos/hidden").set({files:snapshot}); hint.textContent=snapshot.length+"枚を隠しています（保存しました）"; }
     catch(e){ hint.textContent="保存できませんでした: "+(e.code||e.message||e); }
     finally{ writing--; } }
-  function toggle(f){ const i=hidden.indexOf(f);
+  let touched=false;
+  function toggle(f){ try{ touched=true; const i=hidden.indexOf(f);
     if(i>=0) hidden.splice(i,1); else hidden.push(f);
-    hint.textContent=(i>=0?"戻しました":"隠しました")+"（"+hidden.length+"枚 非表示）"; paint(); save(); }
+    if(hint) hint.textContent=(i>=0?"戻しました":"隠しました")+"（"+hidden.length+"枚 非表示）";
+    paint(); save(); }catch(err){ if(hint) hint.textContent="エラー: "+(err&&err.message||err); } }
+  function bind(){ document.querySelectorAll(".th .del").forEach(d=>{ if(d.__b) return; d.__b=1;
+    d.addEventListener("click",ev=>{ ev.preventDefault(); ev.stopPropagation(); toggle(d.dataset.f); }); }); }
   document.addEventListener("click",e=>{
     const d=e.target.closest(".del");
     if(d){ e.preventDefault(); e.stopPropagation(); toggle(d.dataset.f); return; }
@@ -272,9 +277,10 @@ footer{padding:24px 0 0;font-size:13px;color:var(--ash);border-top:1px solid var
     const b=e.target.closest&&e.target.closest(".th"); if(!b) return; e.preventDefault();
     if(tidy) toggle(b.dataset.f); else show(idx(b.dataset.f)); });
   if(btn) btn.onclick=()=>{ tidy=!tidy; document.body.classList.toggle("tidy",tidy); btn.setAttribute("aria-pressed",tidy);
-    hint.textContent = tidy ? "消したい写真を押すと隠れます。もう一度押すと戻ります。" : ""; paint(); };
+    hint.textContent = tidy ? "消したい写真の×を押すと隠れます。もう一度押すと戻ります。" : ""; bind(); paint(); };
+  bind();
   (async()=>{ try{ db = window.claude&&window.claude.use ? await window.claude.use("db") : null; }catch(e){ db=null; }
-    if(!db) return;
-    db.doc("photos/hidden").onSnapshot(sn=>{ if(writing>0) return; const d=sn.data(); hidden=(d&&d.files)||[]; paint(); }, ()=>{}); })();
+    if(!db){ if(hint) hint.textContent=""; return; }
+    try{ const sn=await db.doc("photos/hidden").get(); const d=sn&&sn.data(); if(d&&Array.isArray(d.files)&&!touched){ hidden=d.files.slice(); paint(); } }catch(e){} })();
 })();
 </script>
